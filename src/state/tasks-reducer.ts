@@ -67,6 +67,4 @@ export const changeTaskTitleAC = (taskId: string, title: string, todolistId: str
     return {type: 'CHANGE-TASK-TITLE', taskId, title, todolistId}as const
 }
 
-// export const removeTodolistAC = () => {
-//     return {}as const
-// }
+
