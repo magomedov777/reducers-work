@@ -8,7 +8,11 @@ import {Button, Checkbox} from "@mui/material";
 import { SuperCheckbox } from './SuperCheckbox';
 
 
-
+export type TaskType = {
+    id: string
+    title: string
+    isDone: boolean
+}
 
 type PropsType = {
     id: string
