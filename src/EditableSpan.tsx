@@ -19,7 +19,9 @@ export function EditableSpan(props: EditableSpanPropsType) {
         setEditMode(false);
         props.onChange(title);
     }
-    
+    const changeTitle = (e: ChangeEvent<HTMLInputElement>) => {
+        setTitle(e.currentTarget.value)
+    }
 
     return editMode
         ?    <TextField variant="outlined"
