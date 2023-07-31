@@ -47,7 +47,7 @@ export const TasksReducer = (state = initialState, action: ActionsType) => {
             return copyState
         }
        
-        default: return state
+        default: 
     }
 }
 
