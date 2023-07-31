@@ -15,7 +15,6 @@ export type ActionsType = RemoveTaskActionType
 | ChangeTaskStatusActionType 
 | ChangeTaskTitleActionType 
 | addTodolistACType 
-|removeTodolistACType
  
 const initialState: TasksStateType = {} 
   
