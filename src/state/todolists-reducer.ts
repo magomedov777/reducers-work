@@ -8,6 +8,13 @@ export const TodolistsReducer = (state: TodolistType[], action: MainTypeAction):
   }
 };
 
+export type MainTypeAction =
+  | removeTodolistACType
+  | addTodolistACType
+  | changeTodolistTitleACType
+  | changeFilterACType
+  | addTodolistACType;
+
 export type removeTodolistACType = ReturnType<typeof removeTodolistAC>;
 export const removeTodolistAC = (todolistId: string) => {
   return {
