@@ -18,6 +18,18 @@ export const removeTodolistAC = (todolistId: string) => {
   } as const;
 };
 
+export type addTodolistACType = ReturnType<typeof addTodolistAC>;
+
+export const addTodolistAC = (newTitle: string) => {
+  return {
+    type: "ADD-TODOLIST",
+    payload: {
+      newTitle,
+      todolistId: v1(),
+    },
+  } as const;
+};
+
 export type changeTodolistTitleACType = ReturnType<typeof changeTodolistTitleAC>;
 
 export const changeTodolistTitleAC = (todolistID: string, newTitle: string) => {
