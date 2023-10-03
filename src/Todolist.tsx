@@ -1,10 +1,10 @@
-import React, {ChangeEvent} from 'react';
-import {FilterValuesType} from './App';
-import {AddItemForm} from './AddItemForm';
-import {EditableSpan} from './EditableSpan';
+import React, { ChangeEvent } from 'react';
+import { FilterValuesType } from './App';
+import { AddItemForm } from './AddItemForm';
+import { EditableSpan } from './EditableSpan';
 import IconButton from '@mui/material/IconButton/IconButton';
-import {Delete} from "@mui/icons-material";
-import {Button, Checkbox} from "@mui/material";
+import { Delete } from "@mui/icons-material";
+import { Button, Checkbox } from "@mui/material";
 import { SuperCheckbox } from './SuperCheckbox';
 
 
@@ -29,16 +29,10 @@ type PropsType = {
 }
 
 export function Todolist(props: PropsType) {
-    const addTask = (title: string) => {
-        props.addTask(title, props.id);
-    }
 
-    const removeTodolist = () => {
-        props.removeTodolist(props.id);
-    }
-    const changeTodolistTitle = (title: string) => {
-        props.changeTodolistTitle(props.id, title);
-    }
+
+
+
 
     const onAllClickHandler = () => props.changeFilter("all", props.id);
     const onActiveClickHandler = () => props.changeFilter("active", props.id);
@@ -54,19 +48,19 @@ export function Todolist(props: PropsType) {
                 <Delete />
             </IconButton>
         </h3>
-        <AddItemForm addItem={addTask}/>
+        <AddItemForm addItem={addTask} />
         <div>
             {
                 props.tasks.map(t => {
                     const onClickHandler = () => props.removeTask(t.id, props.id)
-                    
+
                     const onTitleChangeHandler = (newValue: string) => {
                         props.changeTaskTitle(t.id, newValue, props.id);
                     }
 
 
                     return <div key={t.id} className={t.isDone ? "is-done" : ""}>
-                        <SuperCheckbox callBack={(newIsDone) => onChangeHandler(t.id, newIsDone)} isDone={t.isDone}/>
+                        <SuperCheckbox callBack={(newIsDone) => onChangeHandler(t.id, newIsDone)} isDone={t.isDone} />
                         {/* <Checkbox
                             checked={t.isDone}
                             color="primary"
@@ -83,17 +77,17 @@ export function Todolist(props: PropsType) {
         </div>
         <div>
             <Button variant={props.filter === 'all' ? 'outlined' : 'text'}
-                    onClick={onAllClickHandler}
-                    color={'inherit'}
+                onClick={onAllClickHandler}
+                color={'inherit'}
             >All
             </Button>
             <Button variant={props.filter === 'active' ? 'outlined' : 'text'}
-                    onClick={onActiveClickHandler}
-                    color={'primary'}>Active
+                onClick={onActiveClickHandler}
+                color={'primary'}>Active
             </Button>
             <Button variant={props.filter === 'completed' ? 'outlined' : 'text'}
-                    onClick={onCompletedClickHandler}
-                    color={'secondary'}>Completed
+                onClick={onCompletedClickHandler}
+                color={'secondary'}>Completed
             </Button>
         </div>
     </div>
